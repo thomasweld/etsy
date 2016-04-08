@@ -112,9 +112,35 @@ answer4Area.innerHTML = itemTitlesWood.join("<br />");
 // 5. Which items are made of eight or more materials? Display the name, number
 // of items and the items it is made of.
 
+// creating a function to determine whether or not an item has 8+ materials
+function eightPlusMaterials( item ){
+  return item.materials.length >= 8;
+}
 
+// Filtering the items array via eightPlusMaterials function above
+// creates new array called eightArray
+var eightArray = items.filter( eightPlusMaterials );
 
+// Tims code >>>>>>>>>>>>>>>>>>>>>
+var answer5Area = document.querySelector('#answer5');
 
+// Get in the DOM by creating new elements and appending them
+eightArray.forEach( function (singleItem) {
+  // Create a <p> element
+  var pTag = document.createElement('p');
+
+  // Get my title into that paragagraph.
+  // using appendChild
+  // first, though, it has to be a DOM node
+  var textNode = document.createTextNode(singleItem.title + " - the number of materials is " + singleItem.materials.length);
+
+  pTag.appendChild(textNode);
+  //
+  // // Now that `para` is a paragraph tag with a
+  // // title inside of it. Let's put that in my
+  // // answer field
+  answer5Area.appendChild(pTag);
+});
 
 
 

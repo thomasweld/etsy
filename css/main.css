@@ -1,7 +1,8 @@
 body {
   margin: 0px;
   background-color: #EEEEEE;
-
+  color: mediumslateblue;
+  font-family: 'Inconsolata', arial;
 }
 
 .outer {
@@ -28,6 +29,20 @@ nav {
 .main-content {
   margin-top: 40px;
 }
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid mediumslateblue;
+    margin: 8px;
+    padding: 0;
+}
+
+p {
+  line-height: 24px;
+}
+
 .answer h2 {
   text-align: center;
   margin-top: -25px;
