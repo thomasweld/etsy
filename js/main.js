@@ -147,6 +147,35 @@ eightArray.forEach( function (singleItem) {
 ////////////////////////////////////////////////////////////////////////////////
 
 // 6. How many items were made by their sellers?
+//  "who_made": "i_did",  -- or --
+//  "who_made": "someone_else",
+
+// fucntion determines if who_made === "i_did"
+function iMade( item ){
+  return item.who_made === "i_did";
+}
+
+// Filtering the items array via iMade function above
+var iMadeArray = items.filter( iMade );
+
+// Tims code >>>>>>>>>>>>>>>>>>>>>
+var answer6Area = document.querySelector('#answer6');
+
+// Get in the DOM by creating new elements and appending them
+// Create a <p> element
+var pTag = document.createElement('p');
+
+// Get my title into that paragagraph.
+// using appendChild
+// first, though, it has to be a DOM node
+var textNode = document.createTextNode( iMadeArray.length + " were made by their sellers");
+
+pTag.appendChild(textNode);
+//
+// // Now that `para` is a paragraph tag with a
+// // title inside of it. Let's put that in my
+// // answer field
+answer6Area.appendChild(pTag);
 
 
 
