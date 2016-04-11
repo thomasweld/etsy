@@ -9,7 +9,7 @@ var allPrices = items.map( function (item) {
 
 // Now that I have all the prices, we can `reduce` them down to
 // a single value, which is the sum of all prices
-var priceSum = allPrices.reduce(function (prev, curr) {
+var priceSum = allPrices.reduce( function (prev, curr) {
   return prev + curr;
 });
 
@@ -112,34 +112,39 @@ answer4Area.innerHTML = itemTitlesWood.join("<br />");
 // 5. Which items are made of eight or more materials? Display the name, number
 // of items and the items it is made of.
 
-// creating a function to determine whether or not an item has 8+ materials
-function eightPlusMaterials( item ){
+// a function to determine whether or not an item has 8+ materials
+var eightMaterialItems = items.filter ( function (item){
   return item.materials.length >= 8;
-}
+});
 
-// Filtering the items array via eightPlusMaterials function above
-// creates new array called eightArray
-var eightArray = items.filter( eightPlusMaterials );
-
-// Tims code >>>>>>>>>>>>>>>>>>>>>
+// variable that represents the div on the page where we want the answer to go
 var answer5Area = document.querySelector('#answer5');
 
-// Get in the DOM by creating new elements and appending them
-eightArray.forEach( function (singleItem) {
-  // Create a <p> element
+// for each loop to iterate over items in array created above - eightMaterialItems --> create html elements and insert answers/strings into those elements
+
+eightMaterialItems.forEach( function (item){
+  // create pTag and add title inside
   var pTag = document.createElement('p');
 
-  // Get my title into that paragagraph.
-  // using appendChild
-  // first, though, it has to be a DOM node
-  var textNode = document.createTextNode(singleItem.title + " - the number of materials is " + singleItem.materials.length);
-
-  pTag.appendChild(textNode);
-  //
-  // // Now that `para` is a paragraph tag with a
-  // // title inside of it. Let's put that in my
-  // // answer field
+  pTag.innerHTML = item.title + 'has ' + item.materials.length + ' materials';
+  // append to pTag
   answer5Area.appendChild(pTag);
+
+  // create ulTag for each items materials to go into as li
+  var ulTag = document.createElement('ul');
+
+  // iterate over materials in marerials array
+  item.materials.forEach( function(material){
+    // create li tag
+    var liTag = document.createElement('li');
+    liTag.innerHTML = material;
+    // append my li tag to ul
+    ulTag.appendChild(liTag);
+
+  });
+
+  // append my ul tag to my page answer elements
+  answer5Area.appendChild(ulTag);
 });
 
 
@@ -176,11 +181,6 @@ pTag.appendChild(textNode);
 // // title inside of it. Let's put that in my
 // // answer field
 answer6Area.appendChild(pTag);
-
-
-
-
-
 
 
 

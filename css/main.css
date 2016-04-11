@@ -53,13 +53,26 @@ p {
   padding: 4px;
 }
 
-.stuff-here {
+.answer {
   text-align: center;
-  margin: 40px 0px 56px 0px;
+}
+
+.stuff-here, #answer5 {
+  padding: 10px 0px 40px 0px;
 }
 
 footer {
   text-align: center;
   background-color: #4B484F;
   padding: 40px;
+}
+
+ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+li {
+  list-style: none;
+  text-align: center;
 }
